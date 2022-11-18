@@ -16,3 +16,7 @@ export async function fetchMovies() {
     const response = await client.from('movies').select('*');
     return response.data;
 }
+export async function fetchPets() {
+    const response = await client.from('pets').select('*');
+    return response.data;
+}

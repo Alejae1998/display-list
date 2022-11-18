@@ -55,3 +55,21 @@ export function renderMovies(movies) {
     div.append(h1, h2, p, moviesEl);
     return div;
 }
+export function renderPets(pets) {
+    const div = document.createElement('div');
+    const h1 = document.createElement('h1');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    const petsEl = document.createElement('ul');
+    div.classList.add('pets-card');
+    h1.textContent = pets.breed;
+    h2.textContent = pets.cuteness;
+    p.textContent = pets.size;
+    for (let pet of pets.color_type) {
+        const petEl = document.createElement('li');
+        petEl.textContent = pet;
+        petsEl.append(petEl);
+    }
+    div.append(h1, h2, p, petsEl);
+    return div;
+}

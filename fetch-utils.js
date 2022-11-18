@@ -12,3 +12,7 @@ export async function fetchPlants() {
     const response = await client.from('plants').select('*');
     return response.data;
 }
+export async function fetchMovies() {
+    const response = await client.from('movies').select('*');
+    return response.data;
+}

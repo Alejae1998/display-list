@@ -36,3 +36,22 @@ export function renderPlants(plants) {
     div.append(h1, h2, p, plantsEl);
     return div;
 }
+
+export function renderMovies(movies) {
+    const div = document.createElement('div');
+    const h1 = document.createElement('h1');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    const moviesEl = document.createElement('ul');
+    div.classList.add('movies-card');
+    h1.textContent = movies.name;
+    h2.textContent = movies.year;
+    p.textContent = movies.director;
+    for (let cast of movies.casts) {
+        const movieEl = document.createElement('li');
+        movieEl.textContent = cast;
+        moviesEl.append(movieEl);
+    }
+    div.append(h1, h2, p, moviesEl);
+    return div;
+}

@@ -1,9 +1,10 @@
 /* Imports */
-import { fetchCars } from './fetch-utils.js';
-import { renderCars } from './render-utils.js';
+import { fetchCars, fetchPlants } from './fetch-utils.js';
+import { renderCars, renderPlants } from './render-utils.js';
 
 /* Get DOM Elements */
 const carDiv = document.getElementById('cars');
+const plantDiv = document.getElementById('plants');
 
 /* State */
 
@@ -13,6 +14,14 @@ window.addEventListener('load', async () => {
     for (let car of cars) {
         const carsEl = renderCars(car);
         carDiv.append(carsEl);
+    }
+});
+
+window.addEventListener('load', async () => {
+    const plants = await fetchPlants();
+    for (let plant of plants) {
+        const plantsEl = renderPlants(plant);
+        plantDiv.append(plantsEl);
     }
 });
 

@@ -73,3 +73,21 @@ export function renderPets(pets) {
     div.append(h1, h2, p, petsEl);
     return div;
 }
+export function renderCountries(countries) {
+    const div = document.createElement('div');
+    const h1 = document.createElement('h1');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    const countriesEl = document.createElement('ul');
+    div.classList.add('countries-card');
+    h1.textContent = countries.name;
+    h2.textContent = countries.country;
+    p.textContent = countries.longitude;
+    for (let country of countries.popular_dishes) {
+        const countryEl = document.createElement('li');
+        countryEl.textContent = country;
+        countriesEl.append(countryEl);
+    }
+    div.append(h1, h2, p, countriesEl);
+    return div;
+}

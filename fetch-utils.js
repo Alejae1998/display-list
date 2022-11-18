@@ -20,3 +20,7 @@ export async function fetchPets() {
     const response = await client.from('pets').select('*');
     return response.data;
 }
+export async function fetchCountry() {
+    const response = await client.from('countries').select('*');
+    return response.data;
+}

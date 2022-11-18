@@ -1,12 +1,19 @@
 /* Imports */
-import { fetchCars, fetchMovies, fetchPets, fetchPlants } from './fetch-utils.js';
-import { renderCars, renderMovies, renderPets, renderPlants } from './render-utils.js';
+import { fetchCars, fetchCountry, fetchMovies, fetchPets, fetchPlants } from './fetch-utils.js';
+import {
+    renderCars,
+    renderCountries,
+    renderMovies,
+    renderPets,
+    renderPlants,
+} from './render-utils.js';
 
 /* Get DOM Elements */
 const carDiv = document.getElementById('cars');
 const plantDiv = document.getElementById('plants');
 const movieDiv = document.getElementById('movies');
 const petsDiv = document.getElementById('pets');
+const countryDiv = document.getElementById('countries');
 
 /* State */
 
@@ -42,6 +49,13 @@ window.addEventListener('load', async () => {
     }
 });
 
+window.addEventListener('load', async () => {
+    const countries = await fetchCountry();
+    for (let country of countries) {
+        const countryEl = renderCountries(country);
+        countryDiv.append(countryEl);
+    }
+});
 /* Display Functions */
 
 // (don't forget to call any display functions you want to run on page load!)
